@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gabriel Costa | BI Engineer</title>
+<meta name="description" content="Gabriel Miranda Costa, BI engineer. Data foundations, semantic models and Power BI reports people actually use.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16222E; --ink-2:#3C4B5A; --muted:#6A7886;
+  --paper:#F6F8F9; --card:#FFFFFF; --line:#DCE3E8;
+  --teal:#0F6F7C; --teal-soft:#D6EAEC; --teal-deep:#0A4D57;
+  --sand:#E9B949;
+  --r-lg:14px; --r-sm:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Schibsted Grotesk",system-ui,sans-serif;background:var(--paper);color:var(--ink);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--sand);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+/* top bar */
+.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.top .name{font-weight:700;font-size:17px;color:var(--ink);text-decoration:none}
+.top nav{display:flex;gap:22px;font-size:15px}
+.top nav a{color:var(--ink-2);text-decoration:none}
+.top nav a:hover{color:var(--teal)}
+
+/* hero */
+.hero{padding:56px 0 40px}
+.hero h1{font-size:clamp(34px,5.2vw,60px);line-height:1.04;font-weight:800;letter-spacing:-.025em;max-width:16ch}
+.hero p.lede{margin-top:22px;font-size:20px;color:var(--ink-2);max-width:60ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-block;padding:12px 20px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid var(--ink)}
+.btn.primary{background:var(--ink);color:#fff}
+.btn.primary:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+.btn.ghost{color:var(--ink)}
+.btn.ghost:hover{border-color:var(--teal);color:var(--teal)}
+
+/* pipeline: the signature element */
+.pipe{margin-top:52px;display:grid;grid-template-columns:1fr auto 1.3fr auto 1.3fr auto 1.3fr;align-items:stretch;gap:0}
+.stage{padding:18px 18px 16px;border-radius:var(--r-lg);background:var(--card);border:1px solid var(--line)}
+.stage .t{font-weight:700;font-size:16px}
+.stage .d{font-size:14px;color:var(--muted);margin-top:4px;line-height:1.45}
+.stage.src{background:transparent;border-style:dashed}
+.stage.L1{border-top:5px solid #7FB8BF}
+.stage.L2{border-top:5px solid var(--teal)}
+.stage.L3{border-top:5px solid var(--teal-deep)}
+.arrow{align-self:center;width:34px;height:2px;background:var(--line);position:relative;margin:0 4px}
+.arrow::after{content:"";position:absolute;right:-1px;top:-4px;border-left:8px solid var(--line);border-top:5px solid transparent;border-bottom:5px solid transparent}
+.pipe-note{margin-top:14px;font-size:14px;color:var(--muted)}
+
+/* sections */
+section{padding:64px 0 8px}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:28px}
+.sec-head h2{font-size:28px;font-weight:700;letter-spacing:-.015em}
+.sec-head p{color:var(--muted);font-size:15px;max-width:58ch}
+
+/* layer coverage chip */
+.layers{display:inline-flex;gap:4px;align-items:center}
+.layers span{width:26px;height:7px;border-radius:2px;background:var(--line)}
+.layers span.on.L1{background:#7FB8BF}.layers span.on.L2{background:var(--teal)}.layers span.on.L3{background:var(--teal-deep)}
+.layers em{font-style:normal;font-size:13px;color:var(--muted);margin-left:8px}
+
+/* featured client case */
+.client{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px;display:grid;grid-template-columns:1fr 1.35fr;gap:34px}
+.client h3{font-size:24px;font-weight:700;letter-spacing:-.01em}
+.client > div:first-child{position:sticky;top:24px;align-self:start}
+.client .role{color:var(--muted);font-size:15px;margin-top:2px}
+.client p{margin-top:14px;color:var(--ink-2)}
+.client ul{margin:14px 0 0 18px;color:var(--ink-2)}
+.client li{margin-bottom:6px}
+.stack{margin-top:16px;font-size:14px;color:var(--muted)}
+.stack b{color:var(--ink);font-weight:600}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.dash{display:block;text-decoration:none;color:inherit;border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--line);background:#fff}
+.dash img{width:100%;aspect-ratio:800/444;object-fit:cover;display:block;border-bottom:1px solid var(--line)}
+.dash .cap{padding:10px 12px 12px}
+.dash .cap b{display:block;font-size:15px;font-weight:600}
+.dash .cap span{font-size:13.5px;color:var(--muted);line-height:1.4;display:block;margin-top:2px}
+.dash:hover{border-color:var(--teal)}
+.dash:hover .cap b{color:var(--teal)}
+.dash.wide{grid-column:1 / -1}
+.dash.wide img{aspect-ratio:auto}
+
+/* text cases */
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.case{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px}
+.case h3{font-size:20px;font-weight:700}
+.case .role{color:var(--muted);font-size:14.5px;margin-top:2px}
+.case p{margin-top:12px;color:var(--ink-2);font-size:16px}
+.case .layers{margin-top:16px}
+.case .why{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);font-size:15px;color:var(--ink-2)}
+
+/* studies */
+.studies{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.study{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.study img{width:100%;aspect-ratio:800/444;object-fit:cover;display:block}
+.study .cap{padding:16px 18px 18px}
+.study .cap b{font-size:17px;font-weight:700;display:block}
+.study .cap span{font-size:14.5px;color:var(--muted);display:block;margin-top:4px}
+.study:hover{border-color:var(--teal)}
+.study:hover .cap b{color:var(--teal)}
+
+footer{margin-top:72px;background:var(--ink);color:#DCE6EC;padding:48px 0 40px}
+footer h2{font-size:28px;line-height:1.25;font-weight:700;color:#fff;letter-spacing:-.015em;max-width:24ch}
+footer p{margin-top:10px;max-width:60ch;color:#B8C6D0}
+footer .cta .btn{border-color:#fff;color:#fff}
+footer .cta .btn.primary{background:#fff;color:var(--ink)}
+footer .cta .btn.primary:hover{background:var(--sand);border-color:var(--sand)}
+footer small{display:block;margin-top:36px;color:#8A9AA6;font-size:13px}
+
+@media (max-width:900px){
+  .client > div:first-child{position:static}
+  .pipe{grid-template-columns:1fr;gap:10px}
+  .arrow{width:2px;height:18px;margin:0 0 0 24px}
+  .arrow::after{right:-4px;top:auto;bottom:-2px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:8px solid var(--line);border-bottom:0}
+  .client{grid-template-columns:1fr;padding:22px}
+  .cases,.studies{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .wrap{padding:0 18px}
+  .top nav{display:none}
+  .dash-grid{grid-template-columns:1fr}
+  .hero{padding-top:28px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="name" href="#">Gabriel Miranda Costa</a>
+    <nav aria-label="Sections">
+      <a href="#client-work">Client work</a>
+      <a href="#engineering">Engineering</a>
+      <a href="#studies">Design studies</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title" style="padding-top:40px">
+      <h1 id="hero-title">I own the path from raw data to decision.</h1>
+      <p class="lede">BI engineer with 6+ years building the data foundation, the metrics layer that makes numbers trustworthy, and the Power BI reports people actually use. Based in Rio de Janeiro, working remotely with US teams.</p>
+      <div class="cta">
+        <a class="btn primary" href="Gabriel_Costa_CV.pdf">Download CV</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/gabriel-miranda-costa/?locale=en_US">LinkedIn</a>
+        <a class="btn ghost" href="mailto:gm.costa94@gmail.com">gm.costa94@gmail.com</a>
+      </div>
+
+      <div class="pipe" role="list" aria-label="How I work, from source to decision">
+        <div class="stage src" role="listitem"><div class="t">Sources</div><div class="d">Apps, APIs, event logs, spreadsheets</div></div>
+        <div class="arrow" aria-hidden="true"></div>
+        <div class="stage L1" role="listitem"><div class="t">Foundation</div><div class="d">Warehouse and lakehouse layers, ingestion pipelines, data quality</div></div>
+        <div class="arrow" aria-hidden="true"></div>
+        <div class="stage L2" role="listitem"><div class="t">Model</div><div class="d">Semantic models and one definition per metric</div></div>
+        <div class="arrow" aria-hidden="true"></div>
+        <div class="stage L3" role="listitem"><div class="t">Report</div><div class="d">Dashboards designed around the decision they support</div></div>
+      </div>
+      <p class="pipe-note">Each project below is tagged with the layers it covers: <span class="layers" aria-hidden="true"><span class="on L1"></span><span class="on L2"></span><span class="on L3"></span></span> foundation, model, report.</p>
+    </section>
+
+    <section id="client-work" aria-labelledby="cw-title">
+      <div class="sec-head">
+        <h2 id="cw-title">Client work</h2>
+        <p>Live, public reports. Click any of them to open it in Power BI.</p>
+      </div>
+
+      <article class="client">
+        <div>
+          <h3>Todos Pela Educação</h3>
+          <div class="role">BI consultant, project-based, 2023 to present</div>
+          <p>One of Brazil's leading education-policy organizations. I build the reports its directorates use to coordinate partners, track policy agendas and plan advocacy, often starting by designing how the data would be collected.</p>
+          <ul>
+            <li>Designed data collection that turns qualitative partner input into comparable indicators.</li>
+            <li>Delivered for non-technical audiences, such as partner organizations and the organization's own directorates.</li>
+          </ul>
+          <p class="stack"><b>Stack</b> Power BI (DAX, Power Query), data-collection design, map and matrix visuals</p>
+          <div class="layers" style="margin-top:16px" aria-label="Covers model and report"><span class="L1"></span><span class="on L2"></span><span class="on L3"></span><em>Model and report</em></div>
+        </div>
+        <div class="dash-grid">
+          <a class="dash wide" href="https://app.powerbi.com/view?r=eyJrIjoiYWE4ODdmMTEtNWRhNS00ZDQ4LWI0ZmQtODExNjM4OWQ0YzhhIiwidCI6Ijk4Y2M4MTE3LTY5NDItNGZjMy1iMmFlLTMzZmRlMmJmM2IyMiJ9" target="_blank" rel="noopener">
+            <img src="img/coalizao-municipios.jpg" alt="Municipalities Coalition report: table of institutions, map of about 2,100 municipalities by region and bar chart of themes" loading="lazy">
+            <div class="cap"><b>Municipalities Coalition</b><span>27 institutions working across about 2,100 municipalities: who works where, and on which themes.</span></div>
+          </a>
+          <a class="dash" href="https://app.powerbi.com/view?r=eyJrIjoiMTk1MjVkNGYtZWM0Yy00OTFjLTgzZTEtNGMwMTVmNjAyNWFkIiwidCI6Ijk4Y2M4MTE3LTY5NDItNGZjMy1iMmFlLTMzZmRlMmJmM2IyMiJ9" target="_blank" rel="noopener">
+            <img src="img/atores-politicos.jpg" alt="Political actors matrix: bubble chart of support level versus political power, with quadrant classification" loading="lazy">
+            <div class="cap"><b>Political Actors Matrix</b><span>270 officials scored on influence, decision power and support, to prioritize advocacy.</span></div>
+          </a>
+          <a class="dash" href="https://app.powerbi.com/view?r=eyJrIjoiY2NlNDliZTUtMTlhNy00ZGI3LWI1ZTQtNDhkOTljNTUxNjQyIiwidCI6Ijk4Y2M4MTE3LTY5NDItNGZjMy1iMmFlLTMzZmRlMmJmM2IyMiJ9" target="_blank" rel="noopener">
+            <img src="img/educacao-ja.jpg" alt="Educação Já monitoring: overall score gauge, score trend and monthly stage comparison" loading="lazy">
+            <div class="cap"><b>Educação Já monitoring</b><span>How a national education agenda is progressing, theme by theme, month by month.</span></div>
+          </a>
+          <a class="dash" href="https://app.powerbi.com/view?r=eyJrIjoiZmZjMzU1N2MtNTk2ZC00YjQ4LWI0ZTUtYTZjMzhmNGZjNGY4IiwidCI6Ijk4Y2M4MTE3LTY5NDItNGZjMy1iMmFlLTMzZmRlMmJmM2IyMiJ9" target="_blank" rel="noopener">
+            <img src="img/terceiro-setor.jpg" alt="Education third sector by state: organizations per state, map of Brazil and thematic diversity" loading="lazy">
+            <div class="cap"><b>Education NGOs by state</b><span>Which organizations work in each state, so partners can spot overlaps and gaps.</span></div>
+          </a>
+          <a class="dash" href="https://app.powerbi.com/view?r=eyJrIjoiNTlmOGZjZmMtZjQxMi00MjY4LWFlMGMtNjQ5YmRlOWE2ZWIwIiwidCI6Ijk4Y2M4MTE3LTY5NDItNGZjMy1iMmFlLTMzZmRlMmJmM2IyMiJ9" target="_blank" rel="noopener">
+            <img src="img/calendario-eventos.jpg" alt="Events calendar: organizers, themes, audiences and a map of event locations" loading="lazy">
+            <div class="cap"><b>Education events calendar</b><span>Sector events by organizer, theme, audience and place.</span></div>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <section id="engineering" aria-labelledby="eng-title">
+      <div class="sec-head">
+        <h2 id="eng-title">Engineering and metrics work</h2>
+        <p>Confidential client data, so these are described rather than shown.</p>
+      </div>
+      <div class="cases">
+        <article class="case">
+          <h3>RealPlus, NYC real estate</h3>
+          <div class="role">Senior BI analyst via Brightgrove, 2023 to 2026</div>
+          <p>Designed with the CTO and built the analytics layer of the company's first data warehouse on Azure SQL: medallion architecture over 11M+ listings and 14M+ user-activity events, fed by a Python pipeline from Elasticsearch.</p>
+          <p>Owned the metrics layer: when the same KPI showed different numbers in different systems, I traced it to the missing business rule and fixed it in the model, not in the report. Also replaced a static weekly Excel sent to a major NYC brokerage with an interactive trends report the client kept extending.</p>
+          <div class="layers" aria-label="Covers foundation, model and report"><span class="on L1"></span><span class="on L2"></span><span class="on L3"></span><em>Foundation, model and report</em></div>
+        </article>
+        <article class="case">
+          <h3>Rio Grande do Sul State Government</h3>
+          <div class="role">BI consultant, 2026 to present</div>
+          <p>End-to-end data product for the state's public-safety program. Before any dashboard: the data-collection format and a tool-agnostic semantic layer with 121 governed indicator definitions, shared by 11 state departments.</p>
+          <p>The hardest part was not the visuals but agreeing on definitions, including catching double counting across geographic hierarchies before it reached a report.</p>
+          <div class="layers" aria-label="Covers foundation, model and report"><span class="on L1"></span><span class="on L2"></span><span class="on L3"></span><em>Foundation, model and report</em></div>
+        </article>
+        <article class="case">
+          <h3>Homer, Brazilian proptech</h3>
+          <div class="role">First data hire, later data team lead, 2021 to 2023</div>
+          <p>Built the analytics function from scratch and the company's first lakehouse on Azure Databricks (Spark, Delta Lake), consolidating product events, CRM and transactional data. The Tableau OKR dashboard covering every area was followed by the whole company.</p>
+          <div class="layers" aria-label="Covers foundation, model and report"><span class="on L1"></span><span class="on L2"></span><span class="on L3"></span><em>Foundation, model and report</em></div>
+        </article>
+        <article class="case">
+          <h3>NEES, Federal University of Alagoas</h3>
+          <div class="role">BI consultant, 2025 to present</div>
+          <p>Reporting for nationwide education policies on a dbt-modeled Amazon Redshift layer with 190M+ attendance records, plus the BI platform around it: workspaces, access, row-level security and deployment pipelines from dev to production.</p>
+          <div class="layers" aria-label="Covers model and report"><span class="L1"></span><span class="on L2"></span><span class="on L3"></span><em>Model and report</em></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="studies" aria-labelledby="st-title">
+      <div class="sec-head">
+        <h2 id="st-title">Design studies</h2>
+        <p>Built in courses and workshops on public sample data, to practice report UX and visual design.</p>
+      </div>
+      <div class="studies">
+        <a class="study" href="https://app.powerbi.com/view?r=eyJrIjoiM2E3ZWEyMjktMTc4ZS00MjczLWExNTctODdlNjlkMGNkMmEyIiwidCI6IjQ2N2U1YWM1LWQ4OTYtNDc4Ni05YTYyLWViZjdjMGFmYTMyOCJ9&amp;pageName=5492ef5ad7d578fd7f36" target="_blank" rel="noopener">
+          <img src="img/adventureworks.jpg" alt="AdventureWorks sales report: KPI header, sales by quarter, channel, category and country, top products, resellers and customers" loading="lazy">
+          <div class="cap"><b>AdventureWorks sales</b><span>Seven-page report with side navigation, drill pages per dimension and a landing cover. Built for a certified course on UX/UI in Power BI.</span></div>
+        </a>
+        <a class="study" href="https://app.powerbi.com/view?r=eyJrIjoiZjExNjliYzgtOGVlZi00NTFhLTk1YzMtNGVkZmIzYWZiYThkIiwidCI6IjQ2N2U1YWM1LWQ4OTYtNDc4Ni05YTYyLWViZjdjMGFmYTMyOCJ9" target="_blank" rel="noopener">
+          <img src="img/agrofruits.jpg" alt="AgroFruits dark-theme report: revenue seasonality, crop seasonality heatmap, revenue by farm, importing countries map and transport mix" loading="lazy">
+          <div class="cap"><b>AgroFruits exports</b><span>Single-page dark theme: seasonality heatmap, farm ranking, export map and transport mix.</span></div>
+        </a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Looking for someone who builds both ends?</h2>
+    <p>I'm open to remote BI engineer and Power BI / Microsoft Fabric roles with US and European teams. Full overlap with US Eastern and Central hours.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:gm.costa94@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/gabriel-miranda-costa/?locale=en_US">LinkedIn</a>
+      <a class="btn" href="Gabriel_Costa_CV.pdf">Download CV</a>
+    </div>
+    <small>Client reports are public Power BI links. Course reports use public sample data.</small>
+  </div>
+</footer>
+</body>
+</html>
